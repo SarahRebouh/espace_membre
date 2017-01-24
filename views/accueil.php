@@ -40,7 +40,7 @@ require '../model/pdo.php';
 
 
 
-					<a id="deco" href="login.php"><p><img src='template/images/cross.png'>&nbsp;Déconnexion</p></a>
+					<a id="deco" href="../index.php"><p><img src='template/images/cross.png'>&nbsp;Déconnexion</p></a>
 
 
 						<div class="row">
