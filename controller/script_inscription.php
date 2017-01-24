@@ -67,7 +67,7 @@ $error = false;
 				$nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
 
 				if (move_uploaded_file($_FILES["monfichier"]["tmp_name"], $repertoireDestination.$nomDestination)) {
-					echo 'Votre image a bien été envoyée. Vous pouvez la retrouver sur votre espace personnel.';
+					// echo 'Votre image a bien été envoyée. Vous pouvez la retrouver sur votre espace personnel.';
 					
 					
 			//        echo "Le fichier temporaire ".$_FILES["monfichier"]["tmp_name"].
@@ -85,7 +85,7 @@ $error = false;
 				}
 			}
 			
-	//	header('Location: ../views/accueil.php');
+		header('Location: ../views/accueil.php');
 		
 	}
 	
