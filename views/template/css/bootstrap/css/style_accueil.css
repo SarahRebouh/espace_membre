@@ -2,8 +2,6 @@ body {
 	background-color: #dfdfdf;
 }
 
-#prenom {
-}
 
 #deco {
 	float:right;
@@ -36,9 +34,13 @@ body {
 	display:none;
 }
 
+#inputmdp {
+	display:none;
+}
+
 .back {
 	margin-top:20%;
-	padding-bottom:2%;
+	padding-bottom:3%;
 	-moz-box-shadow: 2px 2px 5px 0px #cfcfcf;
 	-webkit-box-shadow: 2px 2px 5px 0px #cfcfcf;
 	-o-box-shadow: 2px 2px 5px 0px #cfcfcf;

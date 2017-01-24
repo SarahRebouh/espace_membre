@@ -16,5 +16,12 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $("#changemdp").click(function(){
+        $("#inputmdp").show();
+    });
+});
+
+
 
 
