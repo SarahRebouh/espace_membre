@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 $nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
-$nom_fichier = "fichier_du_".date("YmdHis")."_resize.".$extensionFichier;
+
 
 	if ( (isset($_POST["Nom"])) && (strlen(trim($_POST["Nom"])) > 0) ) {
         $nom = stripslashes(strip_tags($_POST["Nom"]));
@@ -79,9 +79,16 @@ $nom_fichier = "fichier_du_".date("YmdHis")."_resize.".$extensionFichier;
 				else {
 					echo "Le fichier n'a pas été uploadé.";
 				}
+				
+				require_once "../model/pdo.php";
+				
+			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp) VALUES ('$nom', '$prenom', '$email','$mdp')");
+			$pdo = null;	
+				echo "coucou";
+				
 			}
 			
-		header('Location: ../views/accueil.php');
+		// header('Location: ../views/accueil.php');
 		
 	}
 	
