@@ -2,8 +2,13 @@
 	session_start();
 	include("model/pdo.php");
 	
-	if (isset($_session["gdsfsd"])) {
+	if (isset($_session["login"])) {
 		$page = "views/accueil.php";
+		
+		if (isset($_GET["page"])) {
+			$page = "views/".$_GET["page"].".php";
+		}	
+		
 	}
 	else {
 		

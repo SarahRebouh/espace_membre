@@ -18,7 +18,7 @@ session_start();
 	<h1>Connexion</h1>
 	</div>
 		<div class="row">
-		 <form role="form" action="script_login.php" method="post" class="registration-form">
+		 <form role="form" action="controller/script_login.php" method="post" class="registration-form">
 		 <div class="form-group">
 			                        <div class="col-md-offset-2 col-md-8">
 			                        	<label class="sr-only" for="form-email">Email</label>

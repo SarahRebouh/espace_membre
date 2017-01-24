@@ -28,11 +28,11 @@ $error = false;
         $mdp = "";
     }
 	if ($error == false) {
-		
-		header('Location: accueil.php');
+		$_SESSION["login"] = "toto";
+		header('Location:../index.php');
 		
 	}
 	
 	else {
-		header('Location: login.php');
+		header('Location:../index.php?page=login');
 	}
