@@ -1,0 +1,16 @@
+body {
+	background-color: lightgrey;
+}
+
+h1 {
+	text-align:center;
+	margin-bottom: 50px;
+}
+
+input.envoi {
+	margin-top: 50px;
+}
+
+.error {
+	color: red;
+}
