@@ -1,24 +1,24 @@
 $(document).ready(function(){
     $("#changenom").click(function(){
-        $("#inputnom").show();
+        $("#inputnom").toggle();
     });
 });
 
 $(document).ready(function(){
     $("#changeprenom").click(function(){
-        $("#inputprenom").show();
+        $("#inputprenom").toggle();
     });
 });
 
 $(document).ready(function(){
     $("#changemail").click(function(){
-        $("#inputmail").show();
+        $("#inputmail").toggle();
     });
 });
 
 $(document).ready(function(){
     $("#changemdp").click(function(){
-        $("#inputmdp").show();
+        $("#inputmdp").toggle();
     });
 });
 
