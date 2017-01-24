@@ -73,7 +73,7 @@ $error = false;
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
 					$resize->resizeTo(100, 100);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
-					
+					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
 				} 
 				
 				else {
@@ -82,13 +82,11 @@ $error = false;
 				
 				require_once "../model/pdo.php";
 				
-			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp) VALUES ('$nom', '$prenom', '$email','$mdp')");
+			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp, url_image) VALUES ('$nom', '$prenom', '$email','$mdp', '$nomImage')");
 			$pdo = null;	
-				echo "coucou";
-				
 			}
 			
-		// header('Location: ../views/accueil.php');
+		header('Location: ../views/accueil.php');
 		
 	}
 	
