@@ -2,7 +2,7 @@
 
 try
 {
-    $pdo = new PDO ('mysql:host=localhost;dbname=sarahr;charset=utf8', 'sarahr', '86LQHH2vkU');
+    $pdo = new PDO ('mysql:host=localhost;dbname=sarahr', 'sarahr', '86LQHH2vkU');
     
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
