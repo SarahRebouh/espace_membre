@@ -15,9 +15,15 @@ session_start();
 				<meta charset="utf-8" />
 				<meta name="description" content="Bootstrap" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
+<<<<<<< Updated upstream
 				<?php/* <link rel="stylesheet" type="text/css" href="template/bootstrap/css/bootstrap.css" />*/?>
 				<link rel="stylesheet" type="text/css" href="views/template/bootstrap/css/bootstrap.min.css" />
 				<link rel="stylesheet" type="text/css" href="views/template/css/style_accueil.css" />
+=======
+				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/bootstrap.css" />
+				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/style_accueil.css" />
+>>>>>>> Stashed changes
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 				<script src="views/template/bootstrap/js/bootstrap.min.js"></script>	
 				
