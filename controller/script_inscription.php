@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
-$nom = $prenom = $email = $mdp = $avatar = "";
+$nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
@@ -47,20 +47,49 @@ $error = false;
         $mdp = "";
     }
 	
-		// if ( (isset($_POST["Avatar"])) && (strlen(trim($_POST["Avatar"])) > 0) ) {
-        // $avatar = stripslashes(strip_tags($_POST["Avatar"]));
-    // } 
-	// else {
-        // echo "Merci d'écrire votre nom <br />";
-		// $error = true;
-        // $avatar = "";
-    // }
 	if ($error == false) {
+		// include("pdo.php");
 		
-		header('Location: ../views/accueil.php');
+		$nomOrigine = $_FILES['monfichier']['name'];
+		$elementsChemin = pathinfo($nomOrigine);
+		$extensionFichier = $elementsChemin['extension'];
+		$extensionsAutorisees = array("jpeg", "jpg", "gif", "png");
+		$repertoireResize = "../images/resize/";
+
+			if (!(in_array($extensionFichier, $extensionsAutorisees))) {
+				echo "Ce type de fichier n'est pas supporté";
+			} 
+
+			else {    
+				// Copie dans le repertoire du script avec un nom
+				// incluant l'heure a la seconde pres 
+				$repertoireDestination = "../images/";
+				$nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
+
+				if (move_uploaded_file($_FILES["monfichier"]["tmp_name"], $repertoireDestination.$nomDestination)) {
+					echo 'Votre image a bien été envoyée. Vous pouvez la retrouver sur votre espace personnel.';
+					
+					
+			//        echo "Le fichier temporaire ".$_FILES["monfichier"]["tmp_name"].
+			//                " a été déplacé vers ".$repertoireDestination.$nomDestination;
+					
+					include("test_recize.php");
+					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
+					$resize->resizeTo(100, 100);
+					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
+					
+				} 
+				
+				else {
+					echo "Le fichier n'a pas été uploadé.";
+				}
+			}
+			
+	//	header('Location: ../views/accueil.php');
 		
 	}
 	
 	else {
 		header('Location: ../views/inscription.php');
 	}
+	
