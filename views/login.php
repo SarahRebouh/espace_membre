@@ -7,8 +7,8 @@ session_start();
 	<head>
 		<meta charset="utf-8"/>
 		<title>Login</title>
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/style_login.css">
+		<link rel="stylesheet" href="views/template/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="views/template/css/style_login.css">
 	</head>
 	<body>
 	<div class="container">
@@ -46,7 +46,7 @@ session_start();
 									<div class="col-md-offset-2 col-md-8">
 			                        <button type="submit" class="col-md-offset-4 col-md-4 btn" id="bouton">Se connecter</button>
 									<p class='col-md-offset-5 col-md-4 compte'>Pas de compte ?</p>
-									<a href='inscription.php' class="col-md-offset-4 col-md-4 btn">S'inscrire</a>
+									<a href='views/inscription.php' class="col-md-offset-4 col-md-4 btn">S'inscrire</a>
 									</div>
 									</div>
 									</div>

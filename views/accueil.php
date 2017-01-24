@@ -15,11 +15,11 @@ session_start();
 				<meta charset="utf-8" />
 				<meta name="description" content="Bootstrap" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/bootstrap.css" />
-				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/bootstrap..min.css" />
-				<link rel="stylesheet" type="text/css" href="template/css/bootstrap/css/style_accueil.css" />
+				<?php/* <link rel="stylesheet" type="text/css" href="template/bootstrap/css/bootstrap.css" />*/?>
+				<link rel="stylesheet" type="text/css" href="views/template/bootstrap/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="views/template/css/style_accueil.css" />
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-				<script src="bootstrap/bootstrap.min.js"></script>	
+				<script src="views/template/bootstrap/js/bootstrap.min.js"></script>	
 				
 
 
@@ -37,7 +37,7 @@ session_start();
 
 
 
-					<a id="deco" href="login.php"><p><img src='template/css/bootstrap/images/cross.png'>&nbsp;Déconnexion</p></a>
+					<a id="deco" href="login.php"><p><img src='views/template/images/cross.png'>&nbsp;Déconnexion</p></a>
 
 
 						<div class="row">
@@ -117,8 +117,8 @@ session_start();
 			
 
 
-				<script src ="template/css/bootstrap/js/fichier_accueil.js" type="text/javascript"></script>
-				<script src="Espace-membre/espace_membre/controller/get_utilisateur.php"></script>
+				<script src ="views/template/js/fichier_accueil.js" type="text/javascript"></script>
+				<!----<script src="Espace-membre/espace_membre/controller/get_utilisateur.php"></script>--->
 
 
 			</div>

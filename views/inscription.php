@@ -7,8 +7,8 @@ session_start();
 	<head>
 		<meta charset="utf-8"/>
 		<title>Login</title>
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/style_inscription.css">
+		<link rel="stylesheet" href="template/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="template/css/style_inscription.css">
 	</head>
 	<body>
 	<div class="container">
@@ -18,7 +18,7 @@ session_start();
 	<h1>Inscription</h1>
 	</div>
 		<div class="row">
- <form role="form" enctype="multipart/form-data" action="script_inscription.php" method="post" class="registration-form">
+ <form role="form" enctype="multipart/form-data" action="../controller/script_inscription.php" method="post" class="registration-form">
 <div class="form-group">
 					<label class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4" for="name">Nom :</label>
 						<div>
@@ -76,7 +76,7 @@ session_start();
 					<div class="col-md-offset-5 col-md-3">
 					<input class="envoi" type="submit" value="S'inscrire"/>
 					
-					<a href='login.php'class="btn">Retour</a>
+					<a href='../index.php'class="btn">Retour</a>
 			</div>
 		</div>
 		</form>

@@ -57,10 +57,10 @@ $error = false;
     // }
 	if ($error == false) {
 		
-		header('Location: accueil.php');
+		header('Location: ../views/accueil.php');
 		
 	}
 	
 	else {
-		header('Location: inscription.php');
+		header('Location: ../views/inscription.php');
 	}
