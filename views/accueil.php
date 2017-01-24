@@ -33,8 +33,16 @@ session_start();
 			<div class="container">
 
 
+				<div class="back">
+
+
 
 				<a id="deco" href="login.php"><p><img src='template/css/bootstrap/images/cross.png'>&nbsp;Déconnexion</p></a>
+
+
+				<div class="row">
+
+					<div class="col-xs-12 col-md-8 col-md-offset-2">
 
 
 				<?php 
@@ -71,21 +79,42 @@ session_start();
 
 				   foreach ($result as $row){
 				    echo "<div><br>";
-				  
-				    
+				    	  print "<p id='info'>Informations personnelles</p>";
 				          print "<h1 id='prenom' class='prenom'>Bonjour ".$row["prenom"]."</h1><br><br>";
-				          print "<p class='nom'>Votre nom :&nbsp;".$row["nom"]."&nbsp;&nbsp;<a href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p>";
-				          print "<p class='prenom'>Votre prénom :&nbsp;".$row["prenom"]."&nbsp;&nbsp;<a href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p>";
-				          print "<p class='email'>Votre e-mail :&nbsp;".$row["email"]."&nbsp;&nbsp;<a href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p><br>";
+
+
+				          echo "<div class='row'>";
+				          echo "<div class='col-xs-12 col-md-3'>";
+
+				          echo "<img id='avatar' src='template/css/bootstrap/images/no-avatar.jpg'><br>";
+				          echo "<a href='#'><p id='chavatar'>Changer d'avatar</p></a>";
+
+				          echo "</div>";
+
+				    
+				          echo "<div class='col-xs-12 col-md-9'>";
+
+
+				          print "<p class='nom'>Votre nom :<br>".$row["nom"]."&nbsp;&nbsp;<a id='changenom' href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p><div id='inputnom'><input placeholder='Changer de nom'></input><button type='submit'>Ok</button></div>";
+				          print "<p class='prenom'>Votre prénom :<br>".$row["prenom"]."&nbsp;&nbsp;<a id='changeprenom' href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p><div id='inputprenom'><input placeholder='Changer de prénom'></input><button type='submit'>Ok</button></div>";
+				          print "<p class='email'>Votre e-mail :<br>".$row["email"]."&nbsp;&nbsp;<a id='changemail' href='#'><img src='template/css/bootstrap/images/pencil.png'></a></p><div id='inputmail'><input placeholder='Changer de mail'></input><button type='submit'>Ok</button></div><br>";
 				          print "<button class='mdp'>Changer de mot de passe</button>";
+
+				          echo "</div></div>";
 				   ;
 				   }
 
 				?>
+
+					</div>
+
+				</div>
+
+				</div>
 			
 
 
-
+				<script src ="template/css/bootstrap/js/fichier_accueil.js" type="text/javascript"></script>
 				<script src="Espace-membre/espace_membre/controller/get_utilisateur.php"></script>
 
 			</div>

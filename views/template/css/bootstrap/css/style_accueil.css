@@ -1,8 +1,53 @@
+body {
+	background-color: #dfdfdf;
+}
+
 #prenom {
-	margin-top:10%;
 }
 
 #deco {
 	float:right;
-	margin-top:12%;
+	position:relative;
+	right:10%;
+	margin-top:1.5%;
 }
+
+#avatar {
+	width: 65%;
+}
+
+#chavatar {
+	font-size:96%;
+}
+
+#info {
+	font-size:1.5em;
+}
+
+#inputnom {
+	display:none;
+}
+
+#inputprenom {
+	display:none;
+}
+
+#inputmail {
+	display:none;
+}
+
+.back {
+	margin-top:20%;
+	padding-bottom:2%;
+	-moz-box-shadow: 2px 2px 5px 0px #cfcfcf;
+	-webkit-box-shadow: 2px 2px 5px 0px #cfcfcf;
+	-o-box-shadow: 2px 2px 5px 0px #cfcfcf;
+	box-shadow: 2px 2px 5px 0px #cfcfcf;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=134, Strength=5);
+	background-color: #ffffff;
+	background-size:0em 0em 5em 0em;
+	}
+}
+
+
+
