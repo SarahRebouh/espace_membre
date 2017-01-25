@@ -68,9 +68,6 @@ $error = false;
 		$error = true;
         $img = "";
     }
-    else{
-        $error = false;
-    }
 
 
 
