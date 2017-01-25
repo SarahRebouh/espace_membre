@@ -6,6 +6,7 @@ $nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
+
 	if ( (isset($_POST["Nom"])) && (strlen(trim($_POST["Nom"])) > 0) ) {
         $nom = stripslashes(strip_tags($_POST["Nom"]));
     } 
@@ -67,22 +68,22 @@ $error = false;
 				$nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
 
 				if (move_uploaded_file($_FILES["monfichier"]["tmp_name"], $repertoireDestination.$nomDestination)) {
-					// echo 'Votre image a bien été envoyée. Vous pouvez la retrouver sur votre espace personnel.';
-					
-					
-			//        echo "Le fichier temporaire ".$_FILES["monfichier"]["tmp_name"].
-			//                " a été déplacé vers ".$repertoireDestination.$nomDestination;
 					
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
 					$resize->resizeTo(100, 100);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
-					
+					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
 				} 
 				
 				else {
 					echo "Le fichier n'a pas été uploadé.";
 				}
+				
+				require_once "../model/pdo.php";
+				
+			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp, url_image) VALUES ('$nom', '$prenom', '$email','$mdp', '$nomImage')");
+			$pdo = null;	
 			}
 			
 		header('Location: ../views/accueil.php');
