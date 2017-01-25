@@ -5,6 +5,7 @@ header('Content-Type: text/html; charset=utf-8');
 $email = $mdp = "";
 $error = false;
 
+
 	if ( (isset($_POST["Email"])) && (strlen(trim($_POST["Email"])) > 0) && (filter_var($_POST["Email"], FILTER_VALIDATE_EMAIL)) ) {
         $email = stripslashes(strip_tags($_POST["Email"]));	
     } 
