@@ -2,12 +2,15 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
+require_once "../model/pdo.php";
+
 $nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
 
 	if ( (isset($_POST["Nom"])) && (strlen(trim($_POST["Nom"])) > 0) ) {
+
         $nom = stripslashes(strip_tags($_POST["Nom"]));
     }
 	else {
@@ -26,6 +29,18 @@ $error = false;
     }
 
 	if ( (isset($_POST["Email"])) && (strlen(trim($_POST["Email"])) > 0) && (filter_var($_POST["Email"], FILTER_VALIDATE_EMAIL)) ) {
+
+		$req = $pdo->prepare('SELECT id_utilisateur from  utilisateur WHERE email = ?');
+
+		$req->execute([$_POST['Email']]);
+
+		$membre = $req->fetch();
+
+		if($membre)
+		{
+				$_SESSION["erremail"] = "Utilise un autre email <br />";
+			  $error = true;
+		}
         $email = stripslashes(strip_tags($_POST["Email"]));
     }
 	else if (empty($_POST["Email"])) {
@@ -80,7 +95,6 @@ $error = false;
 					echo "Le fichier n'a pas été uploadé.";
 				}
 
-				require_once "../model/pdo.php";
 
 			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp, url_image) VALUES ('$nom', '$prenom', '$email','$mdp', '$nomImage')");
 			$pdo = null;
