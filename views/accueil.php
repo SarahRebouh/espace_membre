@@ -75,7 +75,10 @@ require '../model/pdo.php';
 						          echo "<div class='col-xs-12 col-md-3'>";
                                
 						          echo "<img id='url_avatar' src='../images/resize/".$row["url_image"]."'><br>";
-						          echo "<a href='#'><p id='chavatar'>Changer d'avatar</p></a>";
+                               
+						          echo "<form enctype='multipart/form-data' action='update.php' method='post'>
+                                  <input type='hidden' name='MAX_FILE_SIZE' value='100000' /><input type='file' name='monfichier' /><input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+                                  <input type='submit' name='submit'></form>";
 
 						          echo "</div>";
 

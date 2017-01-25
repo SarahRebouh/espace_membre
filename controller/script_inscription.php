@@ -64,7 +64,7 @@ $error = false;
     }
 
     if ((empty($_FILES["monfichier"]['name']))) {
-        $_SESSION["errimg"] = "Vous devez choisir une image. <br />";
+        $_SESSION["errimg"] = "Vous devez choisir une image <br />";
 		$error = true;
         $img = "";
     }
@@ -95,8 +95,8 @@ $error = false;
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
 					$resize->resizeTo(100, 100);
-					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
-					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
+					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis").".".$extensionFichier, "100");
+					$nomImage = 'fichier_du_'.date("YmdHis").".".$extensionFichier.'';
 				}
 
 				else {
