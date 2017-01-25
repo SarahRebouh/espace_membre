@@ -19,15 +19,15 @@ $error = false;
 
 		else
 		{
-					$req = $pdo->prepare('SELECT id from members WHERE username = ?');
+					$req = $pdo->prepare('SELECT id from  utilisateurs WHERE nom = ?');
 
-          $req->execute([$_POST['username']]);
+          $req->execute([$_POST['Nom']]);
 
           $membre = $req->fetch();
 
           if($membre)
           {
-            $errors['username'] = "Votre nom d'utilisateur est déjà utilisée";
+            echo "Votre nom d'utilisateur est déjà utilisée";
           }
         }
 
