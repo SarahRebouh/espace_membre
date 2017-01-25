@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
-$nom = $prenom = $email = $mdp = "";
+$nom = $prenom = $email = $mdp = $img = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
@@ -47,6 +47,17 @@ $error = false;
 		$error = true;
         $mdp = "";
     }
+
+    if ((empty($_FILES["monfichier"]['name']))) {
+        $_SESSION["errimg"] = "Vous devez choisir une image. <br />";
+		$error = true;
+        $img = "";
+    }
+    else{
+        $error = false;
+    }
+  
+
 
 	if ($error == false) {
 		// include("pdo.php");
