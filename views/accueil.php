@@ -72,7 +72,7 @@ require '../model/pdo.php';
 
 
 						          echo "<div class='row'>";
-						          echo "<div class='col-xs-12 col-md-3'>";
+						          echo "<div class='col-xs-12 col-md-5'>";
                                
 						          echo "<img id='url_avatar' src='../images/resize/".$row["url_image"]."'><br>";
                                
@@ -83,7 +83,7 @@ require '../model/pdo.php';
 						          echo "</div>";
 
 						    
-						          echo "<div class='col-xs-12 col-md-9'>";
+						          echo "<div class='col-xs-12 col-md-7'>";
 
 
 						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;
