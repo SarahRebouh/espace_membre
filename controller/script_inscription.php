@@ -71,7 +71,7 @@ $error = false;
 					
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
-					$resize->resizeTo(100, 100);
+					$resize->resizeTo(150, 150);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
 					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
 				} 
