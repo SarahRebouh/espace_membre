@@ -75,8 +75,8 @@ require '../model/pdo.php';
 
 						   
 						   						$result = $query->fetchAll();
-						   
-
+                                    
+                                    
 						   foreach ($result as $row){
 
 						    echo "<div><br>";
@@ -87,8 +87,8 @@ require '../model/pdo.php';
 
 						          echo "<div class='row'>";
 						          echo "<div class='col-xs-12 col-md-3'>";
-
-						          echo "<img id='avatar' src='template/images/no-avatar.jpg'><br>";
+                               
+						          echo "<img id='url_avatar' src='../images/resize/".$row["url_image"]."'><br>";
 						          echo "<a href='#'><p id='chavatar'>Changer d'avatar</p></a>";
 
 						          echo "</div>";
