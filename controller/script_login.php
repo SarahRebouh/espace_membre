@@ -28,11 +28,29 @@ $error = false;
         $mdp = "";
     }
 	if ($error == false) {
-		$_SESSION["login"] = "toto";
-		header('Location:../index.php');
+		$log = $_POST["Email"];
+		$pw = $_POST["Motdepasse"];
+		$connexion = false;
+		
+		require_once ('../model/pdo.php');
+			$query = $pdo->query("SELECT email, mdp FROM utilisateur WHERE email = '$log' AND mdp = '$pw'");
+			$result = $query-> fetchAll();
+			$pdo = null;
+		foreach ($result as $row) {
+			print $row['email'];
+			print $row['mdp'];	
+		}
+		
+		if (isset($row['email']) and isset($row['mdp'])) {
+		$connexion = true;
+		echo "coucou";
+		header('Location:../views/accueil.php');
 		
 	}
 	
 	else {
+		$connexion = false;
 		header('Location:../index.php?page=login');
+		$_SESSION["connexion"] = "E-mail inconnu, vous devez vous inscrire";
+	}
 	}
