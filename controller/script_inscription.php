@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 	require_once '../model/pdo.php';
 
-$nom = $prenom = $email = $mdp = "";
+$nom = $prenom = $email = $mdp = $img = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
@@ -121,4 +121,4 @@ $error = false;
 
 require_once "../model/pdo.php";
 $nom = $prenom = $email = $mdp = $img = "";
-$nom = $prenom = $email = $mdp = "";
+$nom = $prenom = $email = $mdp = "";
