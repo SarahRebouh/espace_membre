@@ -5,17 +5,37 @@ require '../model/pdo.php';
 ?>
 
 <?php
-						    if (isset($_GET['submit'])) {
-								   $queryy = $pdo->query("UPDATE utilisateur SET nom='".$_GET['nom']."'");
+			
+
+
+							 //    if (isset($_GET['submit'])) {
+								// 	$queryy = $pdo->query("UPDATE utilisateur SET nom='".$_POST['nom']."'");
+								// } 
+
+								//  if (isset($_GET['submit'])) {
+								//    $queryy = $pdo->query("UPDATE utilisateur SET prenom='".$_POST['prenom']."'");
+								// } 
+
+								//  if (isset($_GET['submit'])) {
+								//    $queryy = $pdo->query("UPDATE utilisateur SET email='".$_POST['email']."'");
+								// } 
+
+
+								if (isset($_GET['submit'])) {
+									if (isset($_GET['nom'])) {
+										$pdo->query("UPDATE utilisateur SET nom='".$_GET['nom']."' WHERE id_utilisateur = ".$_GET['id']);
+									}
+
+									if (isset($_GET['prenom'])) {
+										$pdo->query("UPDATE utilisateur SET prenom='".$_GET['prenom']."' WHERE id_utilisateur = ".$_GET['id']);
+									}
+
+									if (isset($_GET['email'])) {
+										$pdo->query("UPDATE utilisateur SET email='".$_GET['email']."' WHERE id_utilisateur = ".$_GET['id']);
+									}
+									
 								} 
 
-								 if (isset($_GET['submit'])) {
-								   $queryy = $pdo->query("UPDATE utilisateur SET prenom='".$_GET['prenom']."'");
-								} 
-
-								 if (isset($_GET['submit'])) {
-								   $queryy = $pdo->query("UPDATE utilisateur SET email='".$_GET['email']."'");
-								} 
-
+header("location:accueil.php");
 								
 ?>

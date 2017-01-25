@@ -97,7 +97,7 @@ $error = false;
 			$pdo = null;
 			}
 
-		header('Location: ../views/accueil.php');
+		//header('Location: ../views/accueil.php');
 
 	}
 

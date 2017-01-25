@@ -57,22 +57,7 @@ require '../model/pdo.php';
 						       $query = $pdo->query("SELECT * FROM utilisateur");
 						   }
 
-							   else if (isset($_GET['prenom'])) {
-								   $query = $pdo->query("SELECT * FROM utilisateur WHERE prenom='".$_GET['prenom']."'");
-								   
-							   }
-
-								   else if (isset($_GET['nom'])) {
-									   $query = $pdo->query("SELECT * FROM utilisateur WHERE nom='".$_GET['nom']."'");
-								   }
-
-									    else if (isset($_GET['email'])) {
-									    $query = $pdo->query("SELECT * FROM utilisateur WHERE email='".$_GET['email']."'");
-									   }
-						   
-										    else if (isset($_GET['mdp'])) {
-										    $query = $pdo->query("SELECT * FROM utilisateur WHERE mdp='".$_GET['mdp']."'");
-										   }
+							
 
 						   
 						   						$result = $query->fetchAll();
@@ -98,10 +83,27 @@ require '../model/pdo.php';
 						          echo "<div class='col-xs-12 col-md-9'>";
 
 
-						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;<a id='changenom' href='#'><img src='template/images/pencil.png'></a></p><form action='update.php' method='get' id='inputnom'><input placeholder='Changer de nom'></input><button type='submit' name='submit'>Ok</button></form>";
-						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;<a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p><form action='update.php' method='get' id='inputprenom'><input placeholder='Changer de prénom'></input><button type='submit' name='submit'>Ok</button></form>";
-						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;<a id='changemail' href='#'><img src='template/images/pencil.png'></a></p><form action='update.php' method='get' id='inputmail'><input placeholder='Changer de mail'></input><button type='submit' name='submit'>Ok</button></form><br>";
-						          print "<button id='changemdp' class='mdp'>Changer de mot de passe</button><br><br><div id='inputmdp'><input placeholder='Changer de mot de passe'></input><button type='submit' name='submit'>Ok</button></div><br>";
+						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;
+						          <a id='changenom' href='#'><img src='template/images/pencil.png'></a></p>
+						          	<form action='update.php' method='get' id='inputnom'><input name='nom' placeholder='Changer de nom'>
+						          		<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+						          			<button type='submit' name='submit'>Ok</button></form>";
+
+						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;
+						          <a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p>
+						          	<form action='update.php' method='get' id='inputprenom'><input name='prenom' placeholder='Changer de prénom'></input>
+							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+							          		<button type='submit' name='submit'>Ok</button></form>";
+
+						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;
+						          <a id='changemail' href='#'><img src='template/images/pencil.png'></a></p>
+						          	<form action='update.php' method='get' id='inputmail'><input name='email' placeholder='Changer de mail'></input>
+							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+							          		<button type='submit' name='submit'>Ok</button></form><br>";
+
+						          print "<button id='changemdp' class='mdp'>Changer de mot de passe</button><br><br>
+						          <div id='inputmdp'><input placeholder='Changer de mot de passe'></input>
+						          	<button type='submit' name='submit'>Ok</button></div><br>";
 
 						          echo "</div></div>";
 						   ;
