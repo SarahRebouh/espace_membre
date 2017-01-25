@@ -2,6 +2,8 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
+	require_once '../model/pdo.php';
+
 $nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
