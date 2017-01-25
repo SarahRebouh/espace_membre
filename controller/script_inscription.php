@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
-$nom = $prenom = $email = $mdp = "";
+$nom = $prenom = $email = $mdp = $img = "";
 $_SESSION["errnom"] = "";
 $error = false;
 
@@ -48,6 +48,17 @@ $error = false;
         $mdp = "";
     }
 
+    if ((empty($_FILES["monfichier"]['name']))) {
+        $_SESSION["errimg"] = "Vous devez choisir une image. <br />";
+		$error = true;
+        $img = "";
+    }
+    else{
+        $error = false;
+    }
+  
+
+
 	if ($error == false) {
 		// include("pdo.php");
 
@@ -71,7 +82,7 @@ $error = false;
 
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
-					$resize->resizeTo(150, 150);
+					$resize->resizeTo(100, 100);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
 					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
 				}
