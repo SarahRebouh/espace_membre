@@ -2,8 +2,6 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
-require_once "../model/pdo.php";
-
 $nom = $prenom = $email = $mdp = "";
 $_SESSION["errnom"] = "";
 $error = false;
@@ -63,6 +61,17 @@ $error = false;
         $mdp = "";
     }
 
+    if ((empty($_FILES["monfichier"]['name']))) {
+        $_SESSION["errimg"] = "Vous devez choisir une image. <br />";
+		$error = true;
+        $img = "";
+    }
+    else{
+        $error = false;
+    }
+  
+
+
 	if ($error == false) {
 		// include("pdo.php");
 
@@ -86,7 +95,7 @@ $error = false;
 
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
-					$resize->resizeTo(150, 150);
+					$resize->resizeTo(100, 100);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
 					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
 				}
@@ -107,3 +116,7 @@ $error = false;
 	else {
 		header('Location: ../views/inscription.php');
 	}
+
+require_once "../model/pdo.php";
+$nom = $prenom = $email = $mdp = $img = "";
+$nom = $prenom = $email = $mdp = "";
