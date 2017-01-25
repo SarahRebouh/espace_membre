@@ -97,16 +97,18 @@ require '../model/pdo.php';
 						          echo "<div class='col-xs-12 col-md-9'>";
 
 
-						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;<a id='changenom' href='#'><img src='template/images/pencil.png'></a></p><form id='inputnom'><input placeholder='Changer de nom'></input><button type='submit' name='submit'>Ok</button></form>";
-						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;<a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p><form id='inputprenom'><input placeholder='Changer de prénom'></input><button type='submit' name='submit'>Ok</button></form>";
-						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;<a id='changemail' href='#'><img src='template/images/pencil.png'></a></p><form id='inputmail'><input placeholder='Changer de mail'></input><button type='submit' name='submit'>Ok</button></form><br>";
+						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;<a id='changenom' href='#'><img src='template/images/pencil.png'></a></p><form method='get' id='inputnom'><input placeholder='Changer de nom'></input><button type='submit' name='submit'>Ok</button></form>";
+						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;<a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p><form method='get' id='inputprenom'><input placeholder='Changer de prénom'></input><button type='submit' name='submit'>Ok</button></form>";
+						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;<a id='changemail' href='#'><img src='template/images/pencil.png'></a></p><form method='get' id='inputmail'><input placeholder='Changer de mail'></input><button type='submit' name='submit'>Ok</button></form><br>";
 						          print "<button id='changemdp' class='mdp'>Changer de mot de passe</button><br><br><div id='inputmdp'><input placeholder='Changer de mot de passe'></input><button type='submit' name='submit'>Ok</button></div><br>";
 
 						          echo "</div></div>";
 						   ;
 						   }
 
-						
+						   if (isset($_GET['submit'])) {
+								   $queryy = $pdo->query("UPDATE utilisateur SET prenom='".$_GET['prenom']."'");
+								} 
 
 
 						?>
