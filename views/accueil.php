@@ -91,19 +91,23 @@ require '../model/pdo.php';
 
 						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;
 						          <a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputprenom'><input name='prenom' placeholder='Changer de prénom'></input>
+						          	<form action='update.php' method='get' id='inputprenom'><input name='prenom' placeholder='Changer de prénom'>
 							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
 							          		<button type='submit' name='submit'>Ok</button></form>";
 
 						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;
 						          <a id='changemail' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputmail'><input name='email' placeholder='Changer de mail'></input>
+						          	<form action='update.php' method='get' id='inputmail'><input name='email' placeholder='Changer de mail'>
 							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-							          		<button type='submit' name='submit'>Ok</button></form><br>";
+							          		<button type='submit' name='submit'>Ok</button></form>";
 
-						          print "<button id='changemdp' class='mdp'>Changer de mot de passe</button><br><br>
-						          <div id='inputmdp'><input placeholder='Changer de mot de passe'></input>
-						          	<button type='submit' name='submit'>Ok</button></div><br>";
+							      print "<p class='mdp'><span style='font-weight: bold;'>Votre mot de passe :</span><br>&#9679;	&#9679;	&#9679;	&#9679;	&#9679;	&#9679;&nbsp;&nbsp;
+						          <a id='changemdp' href='#'><img src='template/images/pencil.png'></a></p>
+						          	<form action='update.php' method='get' id='inputmdp'><input type='password' name='mdp' placeholder='Changer de mot de passe'>
+							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+							          		<button type='submit' name='submit'>Ok</button></form>";
+
+						      
 
 						          echo "</div></div>";
 						   ;

@@ -33,6 +33,10 @@ require '../model/pdo.php';
 									if (isset($_GET['email'])) {
 										$pdo->query("UPDATE utilisateur SET email='".$_GET['email']."' WHERE id_utilisateur = ".$_GET['id']);
 									}
+
+									if (isset($_GET['mdp'])) {
+										$pdo->query("UPDATE utilisateur SET mdp='".$_GET['mdp']."' WHERE id_utilisateur = ".$_GET['id']);
+									}
 									
 								} 
 
