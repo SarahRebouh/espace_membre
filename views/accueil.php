@@ -50,19 +50,16 @@ require '../model/pdo.php';
 
 
 						<?php 
-
-
+						
+							if (!isset($_SESSION['Email'])) header("location:login.php");
+						
 						   if (empty($_GET)) {
-						       
-						       $query = $pdo->query("SELECT * FROM utilisateur");
+						       $log = $_SESSION['Email'];
+						       $query = $pdo->query("SELECT * FROM utilisateur WHERE email = '$log'");
 						   }
 
-							
-
-						   
 						   						$result = $query->fetchAll();
-                                    
-                                    
+                                                
 						   foreach ($result as $row){
 
 						    echo "<div><br>";

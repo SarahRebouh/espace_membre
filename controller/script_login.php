@@ -44,7 +44,7 @@ $error = false;
 		
 		if (isset($row['email']) and isset($row['mdp'])) {
 		$connexion = true;
-		echo "coucou";
+		$_SESSION['Email'] = $row['email'];
 		header('Location:../views/accueil.php');
 		
 	}
