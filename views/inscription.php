@@ -69,6 +69,7 @@ session_start();
 					<div class="col-md-offset-4 col-md-4">
 					<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 					<input type="file" name="monfichier" />
+					<span id="imgerr"class="error"><?php echo $_SESSION["errimg"];?></span>
 					</div>
 					</div>
 					<div class="row">
