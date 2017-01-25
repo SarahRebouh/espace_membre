@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
@@ -9,16 +9,31 @@ $error = false;
 
 	if ( (isset($_POST["Nom"])) && (strlen(trim($_POST["Nom"])) > 0) ) {
         $nom = stripslashes(strip_tags($_POST["Nom"]));
-    } 
+    }
 	else {
         $_SESSION["errnom"] = "Merci d'écrire votre nom <br />";
 		$error = true;
         $nom = "";
     }
-	
+
+
+		else
+		{
+					$req = $pdo->prepare('SELECT id from  utilisateurs WHERE nom = ?');
+
+          $req->execute([$_POST['Nom']]);
+
+          $membre = $req->fetch();
+
+          if($membre)
+          {
+            echo "Votre nom d'utilisateur est déjà utilisée";
+          }
+        }
+
 		if ( (isset($_POST["Prenom"])) && (strlen(trim($_POST["Prenom"])) > 0) ) {
         $prenom = stripslashes(strip_tags($_POST["Prenom"]));
-    } 
+    }
 	else {
         $_SESSION["errprenom"] = "Merci d'écrire votre prénom <br />";
 		$error = true;
@@ -26,8 +41,8 @@ $error = false;
     }
 
 	if ( (isset($_POST["Email"])) && (strlen(trim($_POST["Email"])) > 0) && (filter_var($_POST["Email"], FILTER_VALIDATE_EMAIL)) ) {
-        $email = stripslashes(strip_tags($_POST["Email"]));	
-    } 
+        $email = stripslashes(strip_tags($_POST["Email"]));
+    }
 	else if (empty($_POST["Email"])) {
         $_SESSION["erremail"] = "Merci d'écrire une adresse email <br />";
 		$error = true;
@@ -41,16 +56,16 @@ $error = false;
 
 	if ( (isset($_POST["Motdepasse"])) && (strlen(trim($_POST["Motdepasse"])) > 0) ) {
         $mdp = stripslashes(strip_tags($_POST["Motdepasse"]));
-    } 
+    }
 	else {
         $_SESSION["errmdp"] = "Merci d'écrire votre mot de passe <br />";
 		$error = true;
         $mdp = "";
     }
-	
+
 	if ($error == false) {
 		// include("pdo.php");
-		
+
 		$nomOrigine = $_FILES['monfichier']['name'];
 		$elementsChemin = pathinfo($nomOrigine);
 		$extensionFichier = $elementsChemin['extension'];
@@ -59,38 +74,37 @@ $error = false;
 
 			if (!(in_array($extensionFichier, $extensionsAutorisees))) {
 				echo "Ce type de fichier n'est pas supporté";
-			} 
+			}
 
-			else {    
+			else {
 				// Copie dans le repertoire du script avec un nom
-				// incluant l'heure a la seconde pres 
+				// incluant l'heure a la seconde pres
 				$repertoireDestination = "../images/";
 				$nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
 
 				if (move_uploaded_file($_FILES["monfichier"]["tmp_name"], $repertoireDestination.$nomDestination)) {
-					
+
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
 					$resize->resizeTo(100, 100);
 					$resize->saveImage($repertoireResize."fichier_du_".date("YmdHis")."_resize.".$extensionFichier, "100");
 					$nomImage = 'fichier_du_'.date("YmdHis").'_resize.'.$extensionFichier.'';
-				} 
-				
+				}
+
 				else {
 					echo "Le fichier n'a pas été uploadé.";
 				}
-				
+
 				require_once "../model/pdo.php";
-				
+
 			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp, url_image) VALUES ('$nom', '$prenom', '$email','$mdp', '$nomImage')");
-			$pdo = null;	
+			$pdo = null;
 			}
-			
+
 		header('Location: ../views/accueil.php');
-		
+
 	}
-	
+
 	else {
 		header('Location: ../views/inscription.php');
 	}
-	
