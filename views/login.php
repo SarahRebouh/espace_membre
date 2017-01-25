@@ -53,6 +53,7 @@ session_start();
         </form>
 		<span id="message"></span>
 		<span id="msg_all"></span>
+		<span id="connect"><?php echo $_SESSION["connexion"];?></span>
 		</div>
 	<?php
 	// remove all session variables
