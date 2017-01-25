@@ -13,8 +13,7 @@ session_start();
 <body>
 	<div class="container">
 
-	<div class="row">
-<!----Login---->	
+	<div class="row">	
 	<h1>Connexion</h1>
 	</div>
 		<div class="row">
