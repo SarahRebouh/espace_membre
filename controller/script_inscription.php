@@ -16,21 +16,6 @@ $error = false;
         $nom = "";
     }
 
-
-		else
-		{
-					$req = $pdo->prepare('SELECT id from  utilisateurs WHERE nom = ?');
-
-          $req->execute([$_POST['Nom']]);
-
-          $membre = $req->fetch();
-
-          if($membre)
-          {
-            echo "Votre nom d'utilisateur est déjà utilisée";
-          }
-        }
-
 		if ( (isset($_POST["Prenom"])) && (strlen(trim($_POST["Prenom"])) > 0) ) {
         $prenom = stripslashes(strip_tags($_POST["Prenom"]));
     }
