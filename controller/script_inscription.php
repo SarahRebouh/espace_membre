@@ -36,7 +36,7 @@ $error = false;
 
 		if($membre)
 		{
-				$_SESSION["erremail"] = "Utilise un autre email <br />";
+				$_SESSION["erremail"] = "Cet e-mail est déjà utilisé<br />";
 			  $error = true;
 		}
         $email = stripslashes(strip_tags($_POST["Email"]));
@@ -69,7 +69,7 @@ $error = false;
     else{
         $error = false;
     }
-  
+
 
 
 	if ($error == false) {
