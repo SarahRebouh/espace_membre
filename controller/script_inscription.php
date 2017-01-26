@@ -91,7 +91,6 @@ $error = false;
 				$nomDestination = "fichier_du_".date("YmdHis").".".$extensionFichier;
 
 				if (move_uploaded_file($_FILES["monfichier"]["tmp_name"], $repertoireDestination.$nomDestination)) {
-
 					include("test_recize.php");
 					$resize = new ResizeImage($repertoireDestination."fichier_du_".date("YmdHis").".".$extensionFichier);
 					$resize->resizeTo(100, 100);
@@ -108,6 +107,8 @@ $error = false;
 			$pdo = null;
 			}
 		$_SESSION['Email'] = $email;
+        
+       
 		header('Location: ../views/accueil.php');
 
 	}

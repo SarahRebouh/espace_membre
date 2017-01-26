@@ -67,7 +67,7 @@ session_start();
             <label class="col-md-offset-4 col-md-4" for="name">Avatar : </label>
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                    <input type="hidden" name="MAX_FILE_SIZE" value="3000000000000000" />
                     <input type="file" name="monfichier" />
                     <span id="imgerr"class="error"><?php echo $_SESSION["errimg"];?></span>
                 </div>

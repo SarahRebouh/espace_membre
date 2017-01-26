@@ -31,7 +31,7 @@ require '../model/pdo.php';
                                         $nomOrigine = $_FILES['monfichier']['name'];
                                         $elementsChemin = pathinfo($nomOrigine);
                                         $extensionFichier = $elementsChemin['extension'];
-                                        $extensionsAutorisees = array("jpeg", "jpg", "gif");
+                                        $extensionsAutorisees = array("jpeg", "jpg", "gif", "png");
                                         $repertoireResize = "../images/resize/";
 
                                         if (!(in_array($extensionFichier, $extensionsAutorisees))) {
