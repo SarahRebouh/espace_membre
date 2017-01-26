@@ -52,6 +52,6 @@ $error = false;
 	else {
 		$connexion = false;
 		header('Location:../index.php?page=login');
-		$_SESSION["connexion"] = "E-mail inconnu, vous devez vous inscrire";
+		$_SESSION["connexion"] = "Identifiants incorrects ou inconnus, veuillez corriger ou vous inscrire";
 	}
 	}
