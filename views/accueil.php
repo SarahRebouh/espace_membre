@@ -68,9 +68,9 @@ require '../model/pdo.php';
 									echo "<div class='col-xs-12 col-md-8 col-md-offset-2'>";
 
 
-
-							    	  print "<p id='info'>Informations personnelles</p>";
-							          print "<h1 id='prenom' class='prenom'>Bonjour ".$row["prenom"]."</h1>";
+									print "<h1 id='prenom' class='prenom'>Bonjour ".$row["prenom"]."</h1>";
+							    	print "<p id='info'>Informations personnelles</p>";
+							          
 
 							   
 
