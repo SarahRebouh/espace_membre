@@ -107,7 +107,7 @@ $error = false;
 			$query = $pdo->query("INSERT INTO utilisateur (nom , prenom, email, mdp, url_image) VALUES ('$nom', '$prenom', '$email','$mdp', '$nomImage')");
 			$pdo = null;
 			}
-
+		$_SESSION['Email'] = $email;
 		header('Location: ../views/accueil.php');
 
 	}
@@ -115,7 +115,3 @@ $error = false;
 	else {
 		header('Location: ../views/inscription.php');
 	}
-
-require_once "../model/pdo.php";
-$nom = $prenom = $email = $mdp = $img = "";
-$nom = $prenom = $email = $mdp = "";
