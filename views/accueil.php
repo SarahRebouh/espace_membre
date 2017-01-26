@@ -43,79 +43,91 @@ require '../model/pdo.php';
 					<a id="deco" href="../index.php"><p><img src='template/images/cross.png'>&nbsp;Déconnexion</p></a>
 
 
-						<div class="row">
-
-
-								<div class="col-xs-12 col-md-8 col-md-offset-2">
+						
 
 
 						<?php 
 						
-							if (!isset($_SESSION['Email'])) header("location:login.php");
-						
-						   if (empty($_GET)) {
-						       $log = $_SESSION['Email'];
-						       $query = $pdo->query("SELECT * FROM utilisateur WHERE email = '$log'");
-						   }
+								if (!isset($_SESSION['Email'])) header("location:login.php");
+							
+							   if (empty($_GET)) {
+							       $log = $_SESSION['Email'];
+							       $query = $pdo->query("SELECT * FROM utilisateur WHERE email = '$log'");
+							   }
 
-						   						$result = $query->fetchAll();
-                                                
-						   foreach ($result as $row){
-
-						    echo "<div><br>";
-
-						    	  print "<p id='info'>Informations personnelles</p>";
-						          print "<h1 id='prenom' class='prenom'>Bonjour ".$row["prenom"]."</h1><br><br>";
+							   						$result = $query->fetchAll();
+	                                                
+							   foreach ($result as $row){
 
 
-						          echo "<div class='row'>";
-						          echo "<div class='col-xs-12 col-md-5'>";
-                               
-						          echo "<img id='url_avatar' src='../images/resize/".$row["url_image"]."'><br>";
-                               
-						          echo "<form enctype='multipart/form-data' action='update.php' method='post'>
-                                  <input type='hidden' name='MAX_FILE_SIZE' value='100000' /><input type='file' name='monfichier' /><input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-                                  <input type='submit' name='submit'></form>";
+							  echo "<div id='color'><br>";
 
-						          echo "</div>";
-
-						    
-						          echo "<div class='col-xs-12 col-md-7'>";
+							    echo "<div class='row'>";
 
 
-						          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;
-						          <a id='changenom' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputnom'><input name='nom' placeholder='Changer de nom'>
-						          		<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-						          			<button type='submit' name='submit'>Ok</button></form>";
-
-						          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;
-						          <a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputprenom'><input name='prenom' placeholder='Changer de prénom'>
-							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-							          		<button type='submit' name='submit'>Ok</button></form>";
-
-						          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;
-						          <a id='changemail' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputmail'><input name='email' placeholder='Changer de mail'>
-							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-							          		<button type='submit' name='submit'>Ok</button></form>";
-
-							      print "<p class='mdp'><span style='font-weight: bold;'>Votre mot de passe :</span><br>&#9679;	&#9679;	&#9679;	&#9679;	&#9679;	&#9679;&nbsp;&nbsp;
-						          <a id='changemdp' href='#'><img src='template/images/pencil.png'></a></p>
-						          	<form action='update.php' method='get' id='inputmdp'><input type='password' name='mdp' placeholder='Changer de mot de passe'>
-							          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
-							          		<button type='submit' name='submit'>Ok</button></form>";
-
-						      
-
-						          echo "</div></div>";
-						   ;
-						   }
+									echo "<div class='col-xs-12 col-md-8 col-md-offset-2'>";
 
 
+									print "<h1 id='prenom' class='prenom'>Bonjour ".$row["prenom"]."</h1>";
+							    	print "<p id='info'>Informations personnelles</p>";
+							          
 
-						?>
+							   
+
+							        echo "</div></div></div>";
+
+							    
+
+							          echo "<div class='row'>";
+							          echo "<div class='col-xs-12 col-md-4 col-md-offset-2'>";							          
+	                               
+							          echo "<br><br><img id='url_avatar' src='../images/resize/".$row["url_image"]."'><br>";
+	                               
+							          echo "<form enctype='multipart/form-data' action='update.php' method='post'>
+	                                  <input type='hidden' name='MAX_FILE_SIZE' value='100000' /><input type='file' name='monfichier' /><input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+	                                  <input type='submit' name='submit'></form>";
+
+							          echo "</div>";
+
+							    
+							          echo "<div class='col-xs-12 col-md-6'>";
+
+							          echo "<br><br><p id='modif'>(Pour changer une info, cliquez sur un crayon.)</p>";
+
+
+							          print "<p class='nom'><span style='font-weight: bold;'>Votre nom :</span><br>".$row["nom"]."&nbsp;&nbsp;
+							          <a id='changenom' href='#'><img src='template/images/pencil.png'></a></p>
+							          	<form action='update.php' method='get' id='inputnom'><input name='nom' placeholder='Changer de nom'>
+							          		<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+							          			<button type='submit' name='submit'>Ok</button></form>";
+
+							          print "<p class='prenom'><span style='font-weight: bold;'>Votre prénom :</span><br>".$row["prenom"]."&nbsp;&nbsp;
+							          <a id='changeprenom' href='#'><img src='template/images/pencil.png'></a></p>
+							          	<form action='update.php' method='get' id='inputprenom'><input name='prenom' placeholder='Changer de prénom'>
+								          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+								          		<button type='submit' name='submit'>Ok</button></form>";
+
+							          print "<p class='email'><span style='font-weight: bold;'>Votre e-mail :</span><br>".$row["email"]."&nbsp;&nbsp;
+							          <a id='changemail' href='#'><img src='template/images/pencil.png'></a></p>
+							          	<form action='update.php' method='get' id='inputmail'><input name='email' placeholder='Changer de mail'>
+								          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+								          		<button type='submit' name='submit'>Ok</button></form>";
+
+								      print "<p class='mdp'><span style='font-weight: bold;'>Votre mot de passe :</span><br>&#9679;	&#9679;	&#9679;	&#9679;	&#9679;	&#9679;&nbsp;&nbsp;
+							          <a id='changemdp' href='#'><img src='template/images/pencil.png'></a></p>
+							          	<form action='update.php' method='get' id='inputmdp'><input type='password' name='mdp' placeholder='Changer de mot de passe'>
+								          	<input type='hidden' name='id' value='".$row['id_utilisateur']."'>
+								          		<button type='submit' name='submit'>Ok</button></form>";
+
+							      
+
+							          echo "</div></div>";
+							   ;
+							   }
+
+
+
+							?>
 
 								</div>
 
