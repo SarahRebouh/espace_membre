@@ -43,15 +43,19 @@ $error = false;
 		}
 		
 		if (isset($row['email']) and isset($row['mdp'])) {
-		$connexion = true;
-		$_SESSION['Email'] = $row['email'];
-		header('Location:../views/accueil.php');
+			$connexion = true;
+			$_SESSION['Email'] = $row['email'];
+			header('Location:../views/accueil.php');
 		
+		}
+		else {
+			$connexion = false;
+		header('Location:../index.php?page=login');
+		$_SESSION["connexion"] = "Identifiants incorrects ou inconnus, veuillez corriger ou vous inscrire";
+		}	
 	}
-	
 	else {
 		$connexion = false;
 		header('Location:../index.php?page=login');
 		$_SESSION["connexion"] = "Identifiants incorrects ou inconnus, veuillez corriger ou vous inscrire";
-	}
 	}
