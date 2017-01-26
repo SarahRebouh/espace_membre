@@ -11,16 +11,17 @@ session_start();
 		<link rel="stylesheet" href="template/css/style_inscription.css">
 	</head>
 	<body>
-	<div class="container">
+	
 
 	<div class="row">
 <!----Login---->	
-	<h1>Inscription</h1>
+	<h1>Veuillez vous inscrire...</h1>
 	</div>
+	<div class="container">
 		<div class="row">
  <form role="form" enctype="multipart/form-data" action="../controller/script_inscription.php" method="post" class="registration-form">
 <div class="form-group">
-            <label class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4" for="name">Nom :</label>
+            <label class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4" for="name">Nom </label>
                 <div>
                     <input type="text" id="Nom" name="Nom" class="col-md-offset-4 col-md-4"  placeholder="Entrez votre nom" value="<?php echo $_SESSION["nom"];?>">
                 </div>
@@ -31,7 +32,7 @@ session_start();
                 </div>
             </div>
         <div class="form-group">
-            <label class="col-md-offset-4 col-md-4" for="name">Prénom :</label>
+            <label class="col-md-offset-4 col-md-4" for="name">Prénom </label>
                 <div>
                     <input type="text" id="Prenom" name="Prenom" class="col-md-offset-4 col-md-4"  placeholder="Entrez votre prénom" value="<?php echo $_SESSION["prenom"];?>">
                 </div>
@@ -42,7 +43,7 @@ session_start();
                 </div>
             </div>
             <div class="form-group">
-            <label class="col-md-offset-4 col-md-4" for="name">E-mail : </label>
+            <label class="col-md-offset-4 col-md-4" for="name">E-mail  </label>
                 <div>
                     <input type="text" id="Email" name="Email" class="col-md-offset-4 col-md-4"  placeholder="Entrez votre e-mail" value="<?php echo $_SESSION["email"];?>">
                 </div>
@@ -53,7 +54,7 @@ session_start();
                 </div>
             </div>
             <div class="form-group">
-            <label class="col-md-offset-4 col-md-4" for="name">Mot de passe : </label>
+            <label class="col-md-offset-4 col-md-4" for="name">Mot de passe  </label>
                 <div>
                     <input type="password" id="Motdepasse" name="Motdepasse" class="col-md-offset-4 col-md-4"  placeholder="Entrez votre mot de passe" value="<?php echo $_SESSION["mdp"];?>">
                 </div>
@@ -64,7 +65,8 @@ session_start();
                 </div>
             </div>
             <div class="form-group">
-            <label class="col-md-offset-4 col-md-4" for="name">Avatar : </label>
+            <label class="col-md-offset-4 col-md-4" for="name">Avatar </label>
+                <p class="row col-md-offset-4 col-md-4">Votre image doit être au format jpg, png ou gif. </p>
             <div class="row">
                 <div class="col-md-offset-4 col-md-4">
                     <input type="hidden" name="MAX_FILE_SIZE" value="3000000000000000" />
@@ -76,7 +78,7 @@ session_start();
                 <div class="col-md-offset-5 col-md-3">
                     <input class="envoi btn" type="submit" value="S'inscrire"/>
                     <div class="row">
-                        <a href='../index.php'class="retour">Retour</a>
+                        <a href='../index.php'class="retour btn">Retour</a>
                     </div>
                 </div>
             </div>
